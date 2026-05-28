@@ -8,14 +8,14 @@ const PersonalInfoForm = ({ data, onChange, removeBackground, setRemoveBackgroun
     }
 
     const fields = [
-        {key: "full_name", label: "Full Name", icon: User, type: "text", required: true},
-        {key: "email", label: "Email Address", icon: Mail, type: "email", required: true},
-        {key: "phone", label: "Phone Number", icon: Phone, type: "tel"},
-        {key: "location", label: "Location", icon: MapPin, type: "text"},
-        {key: "profession", label: "Profession", icon: BriefcaseBusiness, type: "text"},
-        {key: "linkedin", label: "LinkedIn Profile", icon: Link, type: "url"},
-        {key: "website", label: "Personal Website", icon: Globe, type: "url"},
-        
+        { key: "full_name", label: "Full Name", icon: User, type: "text", required: true },
+        { key: "email", label: "Email Address", icon: Mail, type: "email", required: true },
+        { key: "phone", label: "Phone Number", icon: Phone, type: "tel" },
+        { key: "location", label: "Location", icon: MapPin, type: "text" },
+        { key: "profession", label: "Profession", icon: BriefcaseBusiness, type: "text" },
+        { key: "linkedin", label: "LinkedIn Profile", icon: Link, type: "url" },
+        { key: "website", label: "Personal Website", icon: Globe, type: "url" },
+
     ]
 
     return (
@@ -46,17 +46,19 @@ const PersonalInfoForm = ({ data, onChange, removeBackground, setRemoveBackgroun
                     </div>
                 )}
             </div>
-            
+
             {fields.map((field) => {
                 const Icon = field.icon;
                 return (
                     <div key={field.key} className="space-y-1 mt-5">
                         <label htmlFor="" className="flex items-center gap-2 text-sm font-medium text-gray-600">
+
                             <Icon className="size-4" />
                             {field.label}
                             {field.required && <span className="text-red-500">*</span>}
-                            <input type={field.type} value={data[field.key] || ""} onChange={(e) => handleChange(field.key, e.target.value)} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors text-sm" placeholder={`Enter you ${field.label.toLowerCase()}`} required={field.required}/>
+
                         </label>
+                            <input type={field.type} value={data[field.key] || ""} onChange={(e) => handleChange(field.key, e.target.value)} className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors text-sm" placeholder={`Enter you ${field.label.toLowerCase()}`} required={field.required} />
                     </div>
                 )
             })}
